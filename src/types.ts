@@ -8,14 +8,14 @@ declare global {
 export type Event = {
 	id: string;
 	title: string;
-	description?: string;
+	description: string;
 	date: string;
 	time: string;
 	location: string;
 	hosts: string[];
 	capacity: number;
 	registered: string[];
-	tags?: string[];
+	tags: string[];
 };
 
 export type User = {
