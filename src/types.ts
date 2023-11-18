@@ -14,7 +14,7 @@ export type Event = {
 	location: string;
 	hosts: string[];
 	capacity: number;
-	registered: string[];
+	attendees: string[];
 	tags: string[];
 };
 
