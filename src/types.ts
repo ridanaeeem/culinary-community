@@ -16,6 +16,8 @@ export type Event = {
 	capacity: number;
 	attendees: string[];
 	tags: string[];
+	preview: React.ReactElement;
+	images: React.ReactElement[];
 };
 
 export type User = {
