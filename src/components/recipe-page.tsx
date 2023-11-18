@@ -22,7 +22,7 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 			<h4 className="text-xl">Instructions</h4>
 			<ol>
 				{recipe.instructions.map((instruction) => (
-					<li className="p-2">{instruction}</li>
+					<li className="py-2">{instruction}</li>
 				))}
 			</ol>
 		</div>
