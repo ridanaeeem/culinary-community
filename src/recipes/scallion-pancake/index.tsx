@@ -4,7 +4,7 @@ import img3 from "./scallion-pancake3.webp";
 import Image from "next/image";
 import { Recipe } from "@/types";
 
-export const Koshari: Recipe = {
+export const ScallionPancake: Recipe = {
 	id: "?-)&932#]_/=&L6A,m}p&%,+YfWR/AR4",
 	title: "Scallion Pancake",
 	description: "A traditional Chinese dish made with flour, scallions, and oil.",
