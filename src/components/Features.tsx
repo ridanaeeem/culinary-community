@@ -1,11 +1,6 @@
 import { stringify } from "querystring";
 import React from "react";
 
-// const Feature = styled.div`
-//     background-color: #D7EBD6;
-//     width: 25%;
-// `;
-
 const Feature = ({ title, description }: { title: string; description: string }) => {
 	return (
 		<div className="flex flex-col bg-[#D7EBD6] m-5 p-5 rounded-lg items-center justify-between w-1/4">
@@ -18,7 +13,7 @@ const Feature = ({ title, description }: { title: string; description: string })
 	);
 };
 
-export default function Features() {
+export const Features = () => {
 	return (
 		<div className="flex flex-row">
 			<Feature
@@ -39,4 +34,4 @@ export default function Features() {
 			/>
 		</div>
 	);
-}
+};
