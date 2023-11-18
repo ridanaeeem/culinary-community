@@ -8,6 +8,7 @@ export const IntroToBarbeque: Event = {
 	id: "X@HH@hfnXw{!WRXb&0=HYbV{ey4R#&Jn",
 	title: "Intro to Barbeque",
 	description: "Learn how to barbeque like a pro!",
+	price: 25, 
 	date: "2023-08-16",
 	time: "10:00",
 	location: "69 Scott Steet",

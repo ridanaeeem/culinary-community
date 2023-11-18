@@ -8,6 +8,7 @@ export const DumplingMaking: Event = {
 	id: "T2QcJAPG0YEybVw4=Yk&xXDSLVk5jS(1",
 	title: "Dumpling Making",
 	description: "Learn how to make dumplings with us!",
+	price: 10,
 	date: "2021-10-10",
 	time: "12:00",
 	location: "Online",

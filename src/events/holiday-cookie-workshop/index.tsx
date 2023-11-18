@@ -8,6 +8,7 @@ export const HolidayCookieWorkshop: Event = {
 	id: "n_$9GdRaf%QKc}uP?i7AV_36XT6AGzet",
 	title: "Holiday Cookie Workshop",
 	description: "Come bake and decorate holiday cookies with us!",
+	price: 0,
 	date: "2021-12-18",
 	time: "8:00",
 	location: "100 Bay State Road",

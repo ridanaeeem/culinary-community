@@ -9,6 +9,7 @@ export type Event = {
 	id: string;
 	title: string;
 	description: string;
+	price: number;
 	date: string;
 	time: string;
 	location: string;
