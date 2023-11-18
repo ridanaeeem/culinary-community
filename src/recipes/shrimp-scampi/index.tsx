@@ -23,6 +23,7 @@ export const ShrimpScampi: Recipe = {
 		"Combine the pasta and shrimp in a bowl and serve.",
 	],
 	tags: ["Italian"],
+	preview: <Image src={img1} alt="Shrimp Scampi" />,
 	images: [
 		<Image src={img1} alt="Shrimp Scampi" />,
 		<Image src={img2} alt="Shrimp Scampi" />,

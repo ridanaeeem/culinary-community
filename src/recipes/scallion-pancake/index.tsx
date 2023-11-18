@@ -16,6 +16,7 @@ export const ScallionPancake: Recipe = {
 		"Pour the batter into the pan and cook for 5 minutes on each side.",
 	],
 	tags: ["Chinese", "Vegan"],
+	preview: <Image src={img1} alt="Scallion Pancake" />,
 	images: [
 		<Image src={img1} alt="Scallion Pancake" />,
 		<Image src={img2} alt="Scallion Pancake" />,

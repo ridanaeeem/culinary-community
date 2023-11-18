@@ -29,6 +29,7 @@ export const Koshari: Recipe = {
 		"Combine the lentils, rice, macaroni, and chickpeas in a large bowl and mix in the sauce.",
 	],
 	tags: ["Egyptian", "Vegan"],
+	preview: <Image src={img1} alt="Koshari" />,
 	images: [
 		<Image src={img1} alt="Koshari" />,
 		<Image src={img2} alt="Koshari" />,
