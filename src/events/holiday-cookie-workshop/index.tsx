@@ -31,8 +31,8 @@ export const HolidayCookieWorkshop: Event = {
 	tags: ["cookies", "baking", "food", "holiday"],
 	preview: <Image src={img1} alt="holiday cookie workshop" />,
 	images: [
-		<Image src={img1} alt="holiday cookie workshop" />,
-		<Image src={img2} alt="holiday cookie workshop" />,
-		<Image src={img3} alt="holiday cookie workshop" />,
+		<Image key={1} src={img1} alt="holiday cookie workshop" />,
+		<Image key={2} src={img2} alt="holiday cookie workshop" />,
+		<Image key={3} src={img3} alt="holiday cookie workshop" />,
 	],
 };

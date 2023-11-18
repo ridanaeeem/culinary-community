@@ -28,8 +28,8 @@ export const IntroToBarbeque: Event = {
 	tags: ["barbeque", "food", "cooking", "grilling"],
 	preview: <Image src={img1} alt="barbequing" />,
 	images: [
-		<Image src={img1} alt="barbequing" />,
-		<Image src={img2} alt="barbequing" />,
-		<Image src={img3} alt="barbequing" />,
+		<Image key={1} src={img1} alt="barbequing" />,
+		<Image key={2} src={img2} alt="barbequing" />,
+		<Image key={3} src={img3} alt="barbequing" />,
 	],
 };

@@ -28,8 +28,8 @@ export const DumplingMaking: Event = {
 	tags: ["dumplings", "cooking", "food", "asian"],
 	preview: <Image src={img1} alt="dumpling-making" />,
 	images: [
-		<Image src={img1} alt="dumpling-making" />,
-		<Image src={img2} alt="dumpling-making" />,
-		<Image src={img3} alt="dumpling-making" />,
+		<Image key={1} src={img1} alt="dumpling-making" />,
+		<Image key={2} src={img2} alt="dumpling-making" />,
+		<Image key={3} src={img3} alt="dumpling-making" />,
 	],
 };
