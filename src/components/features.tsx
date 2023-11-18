@@ -1,14 +1,13 @@
-import { stringify } from "querystring";
 import React from "react";
 
 const Feature = ({ title, description }: { title: string; description: string }) => {
 	return (
 		<div className="flex flex-col bg-[#D7EBD6] m-5 p-5 rounded-lg items-center justify-between w-1/4">
-			<h3 className="text-2xl font-Inika">
+			<h3 className="text-2xl">
 				<strong>{title}</strong>
 			</h3>
 			<br></br>
-			<p className="text-lg text-center font-Inika">{description}</p>
+			<p className="text-lg text-center">{description}</p>
 		</div>
 	);
 };
