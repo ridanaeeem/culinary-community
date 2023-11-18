@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
+
 :root {
-  --background-start-rgb: 71, 160, 64;
-  --background-end-rgb: 255, 255, 255;
+	--background-start-rgb: 71, 160, 64;
+	--background-end-rgb: 255, 255, 255;
 }
 
 body {
-  background: linear-gradient(
-      to top,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	background: linear-gradient(to top, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
