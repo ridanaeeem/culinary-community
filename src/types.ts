@@ -37,9 +37,10 @@ export type UserProps = {
 export type Recipe = {
 	id: string;
 	title: string;
-	description?: string;
+	description: string;
 	ingredients: string[];
 	instructions: string[];
-	tags?: string[];
-	images?: React.ReactElement[];
+	tags: string[];
+	preview: React.ReactElement;
+	images: React.ReactElement[];
 };
