@@ -33,6 +33,7 @@ const config: Config = {
 				Inika: ["Inika", "serif"],
 			},
 			colors: {
+				fern: "#156E0E",
 				blacK: "#000000",
 				white: "#FFFFFF",
 				blue: "#495CEF",
