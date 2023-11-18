@@ -1,5 +1,5 @@
 import { Header } from "@/components/header";
-import { RecipePreviews } from "@/components/recipe-preview";
+import { RecipePreviews } from "@/components/recipe-previews";
 
 export default function Recipes() {
 	return (

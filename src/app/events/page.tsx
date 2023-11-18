@@ -1,10 +1,13 @@
 import { Header } from "@/components/header";
+import { EventPreviews } from "@/components/event-previews";
 
-export default function Home() {
+export default function Recipes() {
 	return (
 		<>
 			<Header />
-			<main className="flex flex-col items-center justify-between">events</main>
+			<main className="content-center">
+				<EventPreviews />
+			</main>
 		</>
 	);
 }
