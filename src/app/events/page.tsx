@@ -6,7 +6,7 @@ export default function Recipes() {
 		<>
 			<Header />
 			<main className="content-center">
-				<EventPreviews />
+				<EventPreviews limit={Infinity}/>
 			</main>
 		</>
 	);
