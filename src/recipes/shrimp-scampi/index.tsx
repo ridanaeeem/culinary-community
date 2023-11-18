@@ -25,8 +25,8 @@ export const ShrimpScampi: Recipe = {
 	tags: ["Italian"],
 	preview: <Image src={img1} alt="Shrimp Scampi" />,
 	images: [
-		<Image src={img1} alt="Shrimp Scampi" />,
-		<Image src={img2} alt="Shrimp Scampi" />,
-		<Image src={img3} alt="Shrimp Scampi" />,
+		<Image key={1} src={img1} alt="Shrimp Scampi" />,
+		<Image key={2} src={img2} alt="Shrimp Scampi" />,
+		<Image key={3} src={img3} alt="Shrimp Scampi" />,
 	],
 };

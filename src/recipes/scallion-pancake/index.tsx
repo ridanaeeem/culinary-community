@@ -18,8 +18,8 @@ export const ScallionPancake: Recipe = {
 	tags: ["Chinese", "Vegan"],
 	preview: <Image src={img1} alt="Scallion Pancake" />,
 	images: [
-		<Image src={img1} alt="Scallion Pancake" />,
-		<Image src={img2} alt="Scallion Pancake" />,
-		<Image src={img3} alt="Scallion Pancake" />,
+		<Image key={1} src={img1} alt="Scallion Pancake" />,
+		<Image key={2} src={img2} alt="Scallion Pancake" />,
+		<Image key={3} src={img3} alt="Scallion Pancake" />,
 	],
 };

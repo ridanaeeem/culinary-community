@@ -31,8 +31,8 @@ export const Koshari: Recipe = {
 	tags: ["Egyptian", "Vegan"],
 	preview: <Image src={img1} alt="Koshari" />,
 	images: [
-		<Image src={img1} alt="Koshari" />,
-		<Image src={img2} alt="Koshari" />,
-		<Image src={img3} alt="Koshari" />,
+		<Image key={1} src={img1} alt="Koshari" />,
+		<Image key={2} src={img2} alt="Koshari" />,
+		<Image key={3} src={img3} alt="Koshari" />,
 	],
 };
