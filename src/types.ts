@@ -39,6 +39,8 @@ export type UserProps = {
 export type Recipe = {
 	id: string;
 	title: string;
+	author: string;
+	likes: number;
 	description: string;
 	ingredients: string[];
 	instructions: string[];

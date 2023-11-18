@@ -7,6 +7,8 @@ import { Recipe } from "@/types";
 export const ScallionPancake: Recipe = {
 	id: "?-)&932#]_/=&L6A,m}p&%,+YfWR/AR4",
 	title: "Scallion Pancake",
+	author: "HikingAdventurer",
+	likes: 12,
 	description: "A traditional Chinese dish made with flour, scallions, and oil.",
 	ingredients: ["2 cups flour", "1 cup water", "1 cup scallions", "1 tsp salt", "1 tsp pepper", "1 tsp olive oil"],
 	instructions: [

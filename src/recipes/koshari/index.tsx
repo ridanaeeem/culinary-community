@@ -7,6 +7,8 @@ import { Recipe } from "@/types";
 export const Koshari: Recipe = {
 	id: "MqxhUva;;rrSuLeC)yj/FmDmq?t_V)z!",
 	title: "Koshari",
+	author: "Chef234",
+	likes: 19,
 	description: "A traditional Egyptian dish made with rice, lentils, chickpeas, macaroni, and tomato sauce.",
 	ingredients: [
 		"1 cup lentils",
