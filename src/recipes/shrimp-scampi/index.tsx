@@ -7,6 +7,8 @@ import { Recipe } from "@/types";
 export const ShrimpScampi: Recipe = {
 	id: "7qZ80jaP$1AWK08;AerC!cW}d.KU.&e@",
 	title: "Shrimp Scampi",
+	author: "GarlicLover29",
+	likes: 7,
 	description: "A traditional Italian dish made with shrimp, garlic, and butter.",
 	ingredients: [
 		"1 lb small shrimp",

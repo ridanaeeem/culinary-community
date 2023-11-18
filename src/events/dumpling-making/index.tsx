@@ -8,6 +8,7 @@ export const DumplingMaking: Event = {
 	id: "T2QcJAPG0YEybVw4=Yk&xXDSLVk5jS(1",
 	title: "Dumpling Making",
 	description: "Learn how to make dumplings with us!",
+	price: 10,
 	date: "2021-10-10",
 	time: "12:00",
 	location: "Online",
@@ -28,8 +29,8 @@ export const DumplingMaking: Event = {
 	tags: ["dumplings", "cooking", "food", "asian"],
 	preview: <Image src={img1} alt="dumpling-making" />,
 	images: [
-		<Image src={img1} alt="dumpling-making" />,
-		<Image src={img2} alt="dumpling-making" />,
-		<Image src={img3} alt="dumpling-making" />,
+		<Image key={1} src={img1} alt="dumpling-making" />,
+		<Image key={2} src={img2} alt="dumpling-making" />,
+		<Image key={3} src={img3} alt="dumpling-making" />,
 	],
 };

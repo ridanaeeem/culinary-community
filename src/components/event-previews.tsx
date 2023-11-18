@@ -3,11 +3,11 @@ import { Events } from "@/data";
 import Link from "next/link";
 import { ImagePreview } from "./image-preview";
 
-export const EventPreviews = () => {
+export const EventPreviews = ({limit}: {limit: number}) => {
 	return (
 		<div className="flex justify-center">
 			<div className="flex flex-wrap justify-center w-fit">
-				{Events.map(function (event: Event) {
+				{Events.filter((event) => event.price <= limit).map(function (event: Event) {
 					const { id, title, description, preview } = event;
 					return (
 						<Link

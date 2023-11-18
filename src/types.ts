@@ -9,6 +9,7 @@ export type Event = {
 	id: string;
 	title: string;
 	description: string;
+	price: number;
 	date: string;
 	time: string;
 	location: string;
@@ -39,6 +40,8 @@ export type UserProps = {
 export type Recipe = {
 	id: string;
 	title: string;
+	author: string;
+	likes: number;
 	description: string;
 	ingredients: string[];
 	instructions: string[];
