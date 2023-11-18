@@ -9,7 +9,6 @@ export default function Home() {
 			<Header />
 			<main className="flex flex-col items-center justify-between">
 				<Image src={homeBackground} alt="hiii" className="w-full"/>
-				<p className="border-2 border-solid border-gray-500">Hiiii :3</p>
 				<Features />
 			</main>
 		</>
