@@ -4,7 +4,7 @@ import img3 from "./shrimp-scampi3.jpg";
 import Image from "next/image";
 import { Recipe } from "@/types";
 
-export const Koshari: Recipe = {
+export const ShrimpScampi: Recipe = {
 	id: "7qZ80jaP$1AWK08;AerC!cW}d.KU.&e@",
 	title: "Shrimp Scampi",
 	description: "A traditional Italian dish made with shrimp, garlic, and butter.",
