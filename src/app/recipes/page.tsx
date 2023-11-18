@@ -1,5 +1,5 @@
 import { Header } from "@/components/header";
-import { RecipePreviews } from "@/components/recipe-preview";
+import { RecipePreviews } from "@/components/recipe-previews";
 import { Icon } from "@/components/quick-search";
 import timeIcon from "@/images/designs/time.svg";
 
