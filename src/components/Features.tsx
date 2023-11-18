@@ -18,7 +18,7 @@ const Feature = ({ title, description }: { title: string; description: string })
 	);
 };
 
-export function Features() {
+export default function Features() {
 	return (
 		<div className="flex flex-row">
 			<Feature
