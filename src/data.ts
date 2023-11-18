@@ -6,9 +6,9 @@ import { Recipe } from "@/types";
 
 export const Recipes: Recipe[] = [Koshari, ScallionPancake, ShrimpScampi];
 
-export const RecipesByName: { [name: string]: Recipe } = {};
+export const RecipesByTitle: { [name: string]: Recipe } = {};
 for (const recipe of Recipes) {
-	RecipesByName[recipe.title.replace(/\s+/g, "-").toLowerCase()] = recipe;
+	RecipesByTitle[recipe.title.replace(/\s+/g, "-").toLowerCase()] = recipe;
 }
 export const RecipesById: { [key: string]: Recipe } = {};
 for (const recipe of Recipes) {
