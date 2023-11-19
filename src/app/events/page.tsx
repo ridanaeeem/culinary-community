@@ -11,6 +11,6 @@ export default async function Events() {
 		return <EventPreviews events={data} limit={Infinity} />;
 	} catch (error) {
 		console.error("Error fetching data:", error);
-		throw error;
+		return <div>Error loading page</div>;
 	}
 }

@@ -42,6 +42,6 @@ export default async function Home() {
 		);
 	} catch (error) {
 		console.error("Error fetching data:", error);
-		throw error;
+		return <div>Error loading page</div>;
 	}
 }
