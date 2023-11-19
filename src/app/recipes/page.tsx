@@ -2,6 +2,11 @@ import { Header } from "@/components/header";
 import { RecipePreviews } from "@/components/recipe-previews";
 import { Icon } from "@/components/quick-search";
 import timeIcon from "@/images/designs/time.svg";
+import veganIcon from "@/images/designs/vegan.svg";
+import gfIcon from "@/images/designs/gf.svg";
+import mediterraneanIcon from "@/images/designs/mediterranean.svg";
+import desiIcon from "@/images/designs/desi.svg";
+import chinaIcon from "@/images/designs/china.svg";
 
 export default function Recipes() {
 	return (
@@ -12,16 +17,22 @@ export default function Recipes() {
 			<br></br>
 
 			<main className="content-center">
-				<p className="m-10 text-center text-2xl text-[#156E0E]">Recipes by users, for users ♡</p>
-
-				<div className="flex flex-row m-10">
-					<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Vegan" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Gluten-Free" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Mediterranean" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Desi" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Chinese" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Italian" />
+				<div className="flex flex-col bg-[#F5F5F5] mb-10">
+					<p className="m-10 text-center text-5xl text-black">
+						Recipes by users, <div className="text-red-500 mt-4">for users ♡</div>
+					</p>
+					<div className="flex flex-row justify-center mb-7 text-3xl">
+						<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
+						<Icon imagesrc={veganIcon} alt="Leaf" description="Vegan" />
+						<Icon imagesrc={gfIcon} alt="Crossed out wheat" description="Gluten-Free" />
+						<Icon
+							imagesrc={mediterraneanIcon}
+							alt="Map of Mediterranean countries"
+							description="Mediterranean"
+						/>
+						<Icon imagesrc={desiIcon} alt="Map of South Asian subcontinent" description="Desi" />
+						<Icon imagesrc={chinaIcon} alt="Map of China" description="Chinese" />
+					</div>
 				</div>
 				<div className="flex flex-row">
 					<div className="content-center">
