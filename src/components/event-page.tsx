@@ -64,24 +64,24 @@ export const EventPage = ({ event }: { event: any }) => {
 			<br></br>
 			<br></br>
 			<div className="absolute w-full mx-0 brightness-50 z-n10">
-				<div className="">
-					<Image
-						src={`https://culinary-community.vercel.app/images/events/${getEventImages(event)[1]}`}
-						alt={getEventTitle(event)}
-						width={0}
-						height={0}
-						sizes="100vw"
-						style={{ width: "100%", height: "334px" }}
-					/>
-				</div>
+				{/* <div className="">
+						<Image
+							src={`https://culinary-community.vercel.app/images/events/${getEventImages(event)[1]}`}
+							alt={getEventTitle(event)}
+							width={0}
+							height={0}
+							sizes="100vw"
+							style={{ width: "100%", height: "334px" }}
+						/>
+					</div> */}
 			</div>
 			<div className="p-5 z-10">
 				<Link href="/events" className="text-black">
 					← Back to all events
 				</Link>
-				<h2 className="flex flex-col justify-between font-normal p-12 mb-4">
+				<h2 className="flex flex-col justify-between font-normal pr-12 mb-4">
 					<div className="flex flex-row">
-						<div className="text-5xl mr-2 mt-1 text-black shadow-xl">{event.title}</div>
+						<div className="text-5xl mr-2 mt-1 text-black">{event.title}</div>
 						<div className="text-2xl text-red-400 mt-4">
 							{getEventAttendees(event).length}/{getEventCapacity(event)} spots filled
 						</div>

@@ -71,7 +71,7 @@ export const Featured = ({ recipes }: { recipes: any[] }) => {
 										className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
 										<div>{imagepreview}</div>
 										<h2 className="text-xl mt-3">{title}</h2>
-										<div className="flex flex-row">{tags}</div>
+										<div className="flex flex-wrap">{tags}</div>
 										<p>{description}</p>
 									</Link>
 								</div>
