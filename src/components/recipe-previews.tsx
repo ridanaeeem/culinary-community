@@ -57,26 +57,27 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 					Recipes by users, <div className="text-red-500 mt-4">for users ♡</div>
 				</div>
 				<div className="flex flex-row justify-center mb-7 text-3xl">
-					<button onClick={() => setFilter("<1 Hr")}>
+					<button onClick={() => (filter !== "<1 Hr" ? setFilter("<1 Hr") : setFilter("all"))}>
 						<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
 					</button>
-					<button onClick={() => setFilter("Vegan")}>
+					<button onClick={() => (filter !== "Vegan" ? setFilter("Vegan") : setFilter("all"))}>
 						<Icon imagesrc={veganIcon} alt="Leaf" description="Vegan" />
 					</button>
-					<button onClick={() => setFilter("Gluten-Free")}>
+					<button onClick={() => (filter !== "Gluten-Free" ? setFilter("Gluten-Free") : setFilter("all"))}>
 						<Icon imagesrc={gfIcon} alt="Crossed out wheat" description="Gluten-Free" />
 					</button>
-					<button onClick={() => setFilter("Mediterranean")}>
+					<button
+						onClick={() => (filter !== "Mediterranean" ? setFilter("Mediterranean") : setFilter("all"))}>
 						<Icon
 							imagesrc={mediterraneanIcon}
 							alt="Map of Mediterranean countries"
 							description="Mediterranean"
 						/>
 					</button>
-					<button onClick={() => setFilter("Desi")}>
+					<button onClick={() => (filter !== "Desi" ? setFilter("Desi") : setFilter("all"))}>
 						<Icon imagesrc={desiIcon} alt="Map of South Asian subcontinent" description="Desi" />
 					</button>
-					<button onClick={() => setFilter("Chinese")}>
+					<button onClick={() => (filter !== "Chinese" ? setFilter("Chinese") : setFilter("all"))}>
 						<Icon imagesrc={chinaIcon} alt="Map of China" description="Chinese" />
 					</button>
 				</div>
