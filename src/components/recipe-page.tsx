@@ -26,7 +26,7 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 			<div className="absolute w-full mx-0 brightness-50 z-n10">
 				<div className="">
 					<Image
-						src={`http://localhost:3000/images/recipes/${getRecipeImages(recipe)[1]}`}
+						src={`https://culinary-community.vercel.app/images/recipes/${getRecipeImages(recipe)[1]}`}
 						alt={getRecipeTitle(recipe)}
 						width={0}
 						height={0}

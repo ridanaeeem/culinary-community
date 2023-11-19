@@ -3,7 +3,7 @@ const axios = require("axios");
 
 export default async function Events() {
 	try {
-		const response = await axios.get("http://localhost:3000/api/events"); // replace with deployment endpoint
+		const response = await axios.get("https://culinary-community.vercel.app/api/events"); // replace with deployment endpoint
 		const data = response.data;
 		if (!(data instanceof Array)) {
 			throw new Error("Response data is not an array");

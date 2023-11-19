@@ -43,7 +43,9 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 							className="bg-white rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
 							<div>
 								<ImagePreview
-									src={`http://localhost:3000/images/recipes/${getRecipePreview(recipe)}`}
+									src={`https://culinary-community.vercel.app/images/recipes/${getRecipePreview(
+										recipe
+									)}`}
 									alt={getRecipeTitle(recipe)}
 								/>
 							</div>

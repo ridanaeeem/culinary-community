@@ -38,7 +38,9 @@ export const EventPreviews = ({ events, limit }: { events: any[]; limit: number 
 								href={`/events/${getEventTitle(event).replace(/\s+/g, "-").toLowerCase()}`}
 								className="bg-white rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
 								<ImagePreview
-									src={`http://localhost:3000/images/events/${getEventPreview(event)}`}
+									src={`https://culinary-community.vercel.app/images/events/${getEventPreview(
+										event
+									)}`}
 									alt={getEventTitle(event)}
 								/>
 								<h2 className="text-xl">{getEventTitle(event)}</h2>
