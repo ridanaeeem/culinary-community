@@ -33,8 +33,6 @@ export default async function Home() {
 						</div>
 					</div>
 					<Image src={homeBackground} alt="hiii" className="w-full" />
-					<Link href="/events">Events</Link>
-					<Link href="/recipes">Recipes</Link>
 					<Features />
 					<Featured recipes={data} />
 				</main>
