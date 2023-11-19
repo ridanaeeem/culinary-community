@@ -1,7 +1,26 @@
 import React from "react";
 import Link from "next/link";
 import { ImagePreview } from "./image-preview";
-import { Koshari } from "@/recipes/koshari/index";
+
+function getRecipeTitle(recipe: any) {
+	return recipe.title ? recipe.title : "[RECIPE TITLE]";
+}
+
+function getRecipeDescription(recipe: any) {
+	return recipe.description ? recipe.description : "[RECIPE DESCRIPTION]";
+}
+
+function getRecipePreview(recipe: any) {
+	return recipe.preview ? recipe.preview : null;
+}
+
+function getRecipeTags(recipe: any) {
+	return recipe.tags ? recipe.tags : [];
+}
+
+function getRecipeLikes(recipe: any) {
+	return recipe.likes ? recipe.likes : 0;
+}
 
 const Feature = ({ title, description }: { title: string; description: string }) => {
 	return (
@@ -15,26 +34,37 @@ const Feature = ({ title, description }: { title: string; description: string })
 	);
 };
 
-export const Featured = () => {
-	let title = Koshari.title;
-	let preview = Koshari.preview;
-	let tags = Koshari.tags;
-	let description = Koshari.description;
+export const Featured = ({ recipes }: { recipes: any[] }) => {
 	return (
-		<>
-			<h3 className="text-3xl m-6 text-center text-[#156E0E]">Featured Recipes and Events</h3>
-			<div className="flex flex-row">
-				<Link
-					href={`/recipes/${title.replace(/\s+/g, "-").toLowerCase()}`}
-					className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
-					<div>
-						<ImagePreview image={preview} />
-					</div>
-					<h2 className="text-xl mt-3">{title}</h2>
-					<div className="flex flex-row">{tags}</div>
-					<p>{description}</p>
-				</Link>
-			</div>
-		</>
+		<div>
+			{recipes
+				.filter((recipe) => getRecipeLikes(recipe) > 10)
+				.map((recipe) => {
+					let title = getRecipeTitle(recipe);
+					let preview = getRecipePreview(recipe);
+					let tags = getRecipeTags(recipe);
+					let description = getRecipeDescription(recipe);
+					return (
+						<>
+							<h3 className="text-3xl m-6 text-center text-[#156E0E]">Featured Recipes and Events</h3>
+							<div className="flex flex-row">
+								<Link
+									href={`/recipes/${title.replace(/\s+/g, "-").toLowerCase()}`}
+									className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
+									<div>
+										<ImagePreview
+											src={`https://culinary-community.vercel.app/images/recipes/${preview}`}
+											alt={getRecipeTitle(recipe)}
+										/>
+									</div>
+									<h2 className="text-xl mt-3">{title}</h2>
+									<div className="flex flex-row">{tags}</div>
+									<p>{description}</p>
+								</Link>
+							</div>
+						</>
+					);
+				})}
+		</div>
 	);
 };
