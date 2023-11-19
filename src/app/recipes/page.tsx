@@ -3,16 +3,24 @@ import { RecipePreviews } from "@/components/recipe-previews";
 import { Icon } from "@/components/quick-search";
 import timeIcon from "@/images/designs/time.svg";
 
-export default function Recipes() {
-	return (
-		<>
-			<Header />
-			<br></br>
-			<br></br>
-			<br></br>
+const axios = require("axios");
 
-			<main className="content-center">
-				<p className="m-10 text-center text-2xl text-[#156E0E]">Recipes by users, for users ♡</p>
+export default async function Recipes() {
+	try {
+		const response = await axios.get("http://localhost:3000/api/recipes"); // replace with deployment endpoint
+		const data = response.data;
+		if (!(data instanceof Array)) {
+			throw new Error("Response data is not an array");
+		}
+		return (
+			<>
+				<Header />
+				<br></br>
+				<br></br>
+				<br></br>
+
+				<main className="content-center">
+					<p className="m-10 text-center text-2xl text-[#156E0E]">Recipes by users, for users ♡</p>
 
 				<div className="flex flex-row m-10">
 					<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
@@ -25,10 +33,18 @@ export default function Recipes() {
 				</div>
 				<div className="flex flex-row">
 					<div className="content-center">
-						<RecipePreviews />
+						<RecipePreviews recipes={data}/>
 					</div>
-				</div>
-			</main>
-		</>
-	);
+					<div className="flex flex-row">
+						<div className="content-center">
+							<RecipePreviews recipes={data} />
+						</div>
+					</div>
+				</main>
+			</>
+		);
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		throw error;
+	}
 }

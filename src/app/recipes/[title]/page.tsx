@@ -1,25 +1,32 @@
-import React, { FC } from "react";
-import { RecipesByTitle } from "@/data";
+import React from "react";
 import { RecipePage } from "@/components/recipe-page";
 import { Header } from "@/components/header";
 
-interface pageProps {
-	params: { title: string };
+const axios = require("axios");
+
+function getRecipeTitle(recipe: any) {
+	return recipe.title ? recipe.title : "[RECIPE TITLE]";
 }
 
-const ViewRecipe: FC<pageProps> = ({ params }) => {
-	const recipe = RecipesByTitle[params.title];
-	return (
-		<>
-			<main>
-				<title>{recipe.title}</title>
-			</main>
-			<body>
+export default async function ViewEvent({ params }: { params: { title: string } }) {
+	try {
+		console.log(params);
+		const response = await axios.get("http://localhost:3000/api/recipes"); // replace with deployment endpoint
+		const data = response.data;
+		if (!(data instanceof Array)) {
+			throw new Error("Response data is not an array");
+		}
+		const recipe = data.filter(
+			(recipe: any) => getRecipeTitle(recipe).replace(/\s+/g, "-").toLowerCase() === params.title
+		);
+		return (
+			<>
 				<Header />
-				<RecipePage recipe={recipe} />
-			</body>
-		</>
-	);
-};
-
-export default ViewRecipe;
+				<RecipePage recipe={recipe[0]} />
+			</>
+		);
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		throw error;
+	}
+}

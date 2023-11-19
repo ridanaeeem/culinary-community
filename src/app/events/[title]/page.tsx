@@ -1,20 +1,32 @@
-import React, { FC } from "react";
-import { EventsByTitle } from "@/data";
+import React from "react";
 import { EventPage } from "@/components/event-page";
 import { Header } from "@/components/header";
 
-interface pageProps {
-	params: { title: string };
+const axios = require("axios");
+
+function getEventTitle(event: any) {
+	return event.title ? event.title : "[EVENT TITLE]";
 }
 
-const ViewRecipe: FC<pageProps> = ({ params }) => {
-	const event = EventsByTitle[params.title];
-	return (
-		<>
-			<Header />
-			<EventPage event={event} />
-		</>
-	);
-};
-
-export default ViewRecipe;
+export default async function ViewEvent({ params }: { params: { title: string } }) {
+	try {
+		console.log(params);
+		const response = await axios.get("http://localhost:3000/api/events"); // replace with deployment endpoint
+		const data = response.data;
+		if (!(data instanceof Array)) {
+			throw new Error("Response data is not an array");
+		}
+		const event = data.filter(
+			(event: any) => getEventTitle(event).replace(/\s+/g, "-").toLowerCase() === params.title
+		);
+		return (
+			<>
+				<Header />
+				<EventPage event={event[0]} />
+			</>
+		);
+	} catch (error) {
+		console.error("Error fetching data:", error);
+		throw error;
+	}
+}

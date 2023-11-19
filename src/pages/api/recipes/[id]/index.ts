@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "@/utils/connection";
+import { recipeConnect } from "@/utils/connection";
 import { ResponseFuncs } from "@/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -12,23 +12,23 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	// GRAB ID FROM req.query (where next stores params)
 	const id: string = req.query.id as string;
 
-	// Potential Responses for /Events/:id
+	// Potential Responses for /Recipes/:id
 	const handleCase: ResponseFuncs = {
 		// RESPONSE FOR GET REQUESTS
 		GET: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.findById(id).catch(catcher));
+			const { Recipes } = await recipeConnect(); // connect to database
+			res.json(await Recipes.findById(id).catch(catcher));
 		},
-		// RESPONSE PUT REQUESTS
-		PUT: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.findByIdAndUpdate(id, req.body, { new: true }).catch(catcher));
-		},
-		// RESPONSE FOR DELETE REQUESTS
-		DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.findByIdAndRemove(id).catch(catcher));
-		},
+		// // RESPONSE PUT REQUESTS
+		// PUT: async (req: NextApiRequest, res: NextApiResponse) => {
+		// 	const { Recipes } = await recipeConnect(); // connect to database
+		// 	res.json(await Recipe.findByIdAndUpdate(id, req.body, { new: true }).catch(catcher));
+		// },
+		// // RESPONSE FOR DELETE REQUESTS
+		// DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
+		// 	const { Recipes } = await recipeConnect(); // connect to database
+		// 	res.json(await Recipe.findByIdAndRemove(id).catch(catcher));
+		// },
 	};
 
 	// Check if there is a response for the particular method, if so invoke it, if not response with an error
