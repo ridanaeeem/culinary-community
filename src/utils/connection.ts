@@ -25,6 +25,10 @@ export const eventConnect = async () => {
 	const EventsSchema = new mongoose.Schema({});
 
 	const conn = await mongoose.connect(DATABASE_URL as string).catch((err) => console.log(err));
+	if (!conn) {
+		console.log("Connection Error");
+		throw new Error("Connection Error");
+	}
 	const dbName = "CCDatabase";
 	const db = conn.connection.db;
 
@@ -61,6 +65,10 @@ export const recipeConnect = async () => {
 	const RecipesSchema = new mongoose.Schema({});
 
 	const conn = await mongoose.connect(DATABASE_URL as string).catch((err) => console.log(err));
+	if (!conn) {
+		console.log("Connection Error");
+		throw new Error("Connection Error");
+	}
 	const dbName = "CCDatabase";
 	const db = conn.connection.db;
 
