@@ -11,8 +11,13 @@ const ViewRecipe: FC<pageProps> = ({ params }) => {
 	const recipe = RecipesByTitle[params.title];
 	return (
 		<>
-			<Header />
-			<RecipePage recipe={recipe} />
+			<main>
+				<title>{recipe.title}</title>
+			</main>
+			<body>
+				<Header />
+				<RecipePage recipe={recipe} />
+			</body>
 		</>
 	);
 };
