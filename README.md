@@ -19,6 +19,6 @@ As a result of this project, we've had to think about how to make services as ac
 ## What's next for CulinaryCommunity
 Ideally, we would love to partner with companies like HelloFresh, Google Meet, and Zoom. Partnerships with these brands would allow us to deliver food to user's directly, further improving accessibility, reducing waste, and connecting people from all over the globe. 
 
-View our project [culinary-community.vercel.app](https://culinary-community.vercel.app/)
+View our project [culinary-community.vercel.app](https://culinary-community-git-main-kingtingthegreat.vercel.app)
 
 [gif of website](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2Z5aXR6MXF6bXk4cjZpYnE4bHlhemNxbm52dDQ5MHYyc2wzZDhsaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/D4cTmot25dAiEhjO7L/giphy.gif)
