@@ -37,40 +37,42 @@ const Feature = ({ title, description }: { title: string; description: string })
 export const Featured = ({ recipes }: { recipes: any[] }) => {
 	return (
 		<div>
-			{recipes
-				.filter((recipe) => getRecipeLikes(recipe) > 10)
-				.map((recipe) => {
-					let title = getRecipeTitle(recipe);
-					let preview = getRecipePreview(recipe);
-					let tags = getRecipeTags(recipe);
-					let description = getRecipeDescription(recipe);
-					let imagepreview;
-					try {
-						imagepreview = (
-							<ImagePreview
-								src={`https://culinary-community.vercel.app/images/recipes/${preview}`}
-								alt={getRecipeTitle(recipe)}
-							/>
+			<h3 className="text-3xl m-6 text-center text-[#156E0E]">Featured Recipes and Events</h3>
+			<div className="flex flex-row justify-center">
+				{recipes
+					.filter((recipe) => getRecipeLikes(recipe) > 10)
+					.map((recipe) => {
+						let title = getRecipeTitle(recipe);
+						let preview = getRecipePreview(recipe);
+						let tags = getRecipeTags(recipe);
+						let description = getRecipeDescription(recipe);
+						let imagepreview;
+						try {
+							imagepreview = (
+								<ImagePreview
+									src={`https://culinary-community.vercel.app/images/recipes/${preview}`}
+									alt={getRecipeTitle(recipe)}
+								/>
+							);
+						} catch (error) {
+							console.error("Error fetching data:", error);
+						}
+						return (
+							<>
+								<div className="flex flex-row">
+									<Link
+										href={`/recipes/${title.replace(/\s+/g, "-").toLowerCase()}`}
+										className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
+										<div>{imagepreview}</div>
+										<h2 className="text-xl mt-3">{title}</h2>
+										<div className="flex flex-row">{tags}</div>
+										<p>{description}</p>
+									</Link>
+								</div>
+							</>
 						);
-					} catch (error) {
-						console.error("Error fetching data:", error);
-					}
-					return (
-						<>
-							<h3 className="text-3xl m-6 text-center text-[#156E0E]">Featured Recipes and Events</h3>
-							<div className="flex flex-row">
-								<Link
-									href={`/recipes/${title.replace(/\s+/g, "-").toLowerCase()}`}
-									className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
-									<div>{imagepreview}</div>
-									<h2 className="text-xl mt-3">{title}</h2>
-									<div className="flex flex-row">{tags}</div>
-									<p>{description}</p>
-								</Link>
-							</div>
-						</>
-					);
-				})}
+					})}
+			</div>
 		</div>
 	);
 };
