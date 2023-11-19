@@ -1,4 +1,3 @@
-import React from "react";
 import { MongoClient } from "mongodb";
 
 declare global {
@@ -36,15 +35,7 @@ export type User = {
 	events: string[];
 };
 
-export type EventProps = {
-	event: Event;
-};
-
-export type UserProps = {
-	user: User;
-};
-
-export type Recipe = {
+export interface Recipe {
 	id: string;
 	title: string;
 	author: string;
@@ -53,6 +44,6 @@ export type Recipe = {
 	ingredients: string[];
 	instructions: string[];
 	tags: string[];
-	preview: React.ReactElement;
-	images: React.ReactElement[];
-};
+	preview: string;
+	images: string[];
+}
