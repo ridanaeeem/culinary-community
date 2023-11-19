@@ -5,8 +5,15 @@ declare global {
 	var _mongoClientPromise: Promise<MongoClient>;
 }
 
-export type Event = {
-	id: string;
+export interface ResponseFuncs {
+	GET?: Function;
+	POST?: Function;
+	PUT?: Function;
+	DELETE?: Function;
+}
+
+export interface Event {
+	_id: string;
 	title: string;
 	description: string;
 	price: number;
@@ -17,9 +24,9 @@ export type Event = {
 	capacity: number;
 	attendees: string[];
 	tags: string[];
-	preview: React.ReactElement;
-	images: React.ReactElement[];
-};
+	preview: string;
+	images: string[];
+}
 
 export type User = {
 	id: string;
