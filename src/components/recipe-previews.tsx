@@ -111,7 +111,7 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 											/>
 										</div>
 										<h2 className="text-xl mt-3">{getRecipeTitle(recipe)}</h2>
-										<div className="flex">{tags}</div>
+										<div className="flex flex-wrap">{tags}</div>
 										<p>{getRecipeDescription(recipe)}</p>
 									</Link>
 								);
