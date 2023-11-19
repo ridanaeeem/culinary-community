@@ -44,7 +44,13 @@ export const Featured = ({ recipes }: { recipes: any[] }) => {
 					.map((recipe) => {
 						let title = getRecipeTitle(recipe);
 						let preview = getRecipePreview(recipe);
-						let tags = getRecipeTags(recipe);
+						const tags = getRecipeTags(recipe).map((tag: string, i: number) => (
+							<p
+								key={i}
+								className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
+								{tag}
+							</p>
+						));
 						let description = getRecipeDescription(recipe);
 						let imagepreview;
 						try {

@@ -24,27 +24,28 @@ export default async function Recipes() {
 				<br></br>
 				<br></br>
 
-			<main className="content-center">
-				<div className="flex flex-col bg-[#F5F5F5] mb-10">
-					<p className="m-10 text-center text-5xl text-black">
-						Recipes by users, <div className="text-red-500 mt-4">for users ♡</div>
-					</p>
-					<div className="flex flex-row justify-center mb-7 text-3xl">
-						<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
-						<Icon imagesrc={veganIcon} alt="Leaf" description="Vegan" />
-						<Icon imagesrc={gfIcon} alt="Crossed out wheat" description="Gluten-Free" />
-						<Icon
-							imagesrc={mediterraneanIcon}
-							alt="Map of Mediterranean countries"
-							description="Mediterranean"
-						/>
-						<Icon imagesrc={desiIcon} alt="Map of South Asian subcontinent" description="Desi" />
-						<Icon imagesrc={chinaIcon} alt="Map of China" description="Chinese" />
+				<main className="content-center">
+					<div className="flex flex-col bg-[#F5F5F5] mb-10">
+						<div className="m-10 text-center text-5xl text-black">
+							Recipes by users, <div className="text-red-500 mt-4">for users ♡</div>
+						</div>
+						<div className="flex flex-row justify-center mb-7 text-3xl">
+							<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
+							<Icon imagesrc={veganIcon} alt="Leaf" description="Vegan" />
+							<Icon imagesrc={gfIcon} alt="Crossed out wheat" description="Gluten-Free" />
+							<Icon
+								imagesrc={mediterraneanIcon}
+								alt="Map of Mediterranean countries"
+								description="Mediterranean"
+							/>
+							<Icon imagesrc={desiIcon} alt="Map of South Asian subcontinent" description="Desi" />
+							<Icon imagesrc={chinaIcon} alt="Map of China" description="Chinese" />
+						</div>
 					</div>
-				</div>
-				<div className="flex flex-row">
-					<div className="content-center">
-						<RecipePreviews recipes={data} />
+					<div className="flex flex-row">
+						<div className="content-center">
+							<RecipePreviews recipes={data} />
+						</div>
 					</div>
 				</main>
 			</>
@@ -59,16 +60,22 @@ export default async function Recipes() {
 				<br></br>
 
 				<main className="content-center">
-					<p className="m-10 text-center text-2xl text-[#156E0E]">Recipes by users, for users ♡</p>
-
-					<div className="flex flex-row m-10">
-						<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
-						<Icon imagesrc={timeIcon} alt="Timer" description="Vegan" />
-						<Icon imagesrc={timeIcon} alt="Timer" description="Gluten-Free" />
-						<Icon imagesrc={timeIcon} alt="Timer" description="Mediterranean" />
-						<Icon imagesrc={timeIcon} alt="Timer" description="Desi" />
-						<Icon imagesrc={timeIcon} alt="Timer" description="Chinese" />
-						<Icon imagesrc={timeIcon} alt="Timer" description="Italian" />
+					<div className="flex flex-col bg-[#F5F5F5] mb-10">
+						<p className="m-10 text-center text-5xl text-black">
+							Recipes by users, <div className="text-red-500 mt-4">for users ♡</div>
+						</p>
+						<div className="flex flex-row justify-center mb-7 text-3xl">
+							<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
+							<Icon imagesrc={veganIcon} alt="Leaf" description="Vegan" />
+							<Icon imagesrc={gfIcon} alt="Crossed out wheat" description="Gluten-Free" />
+							<Icon
+								imagesrc={mediterraneanIcon}
+								alt="Map of Mediterranean countries"
+								description="Mediterranean"
+							/>
+							<Icon imagesrc={desiIcon} alt="Map of South Asian subcontinent" description="Desi" />
+							<Icon imagesrc={chinaIcon} alt="Map of China" description="Chinese" />
+						</div>
 					</div>
 				</main>
 			</>
