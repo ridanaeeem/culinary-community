@@ -41,3 +41,39 @@ export const eventConnect = async () => {
 
 	return { conn, Events };
 };
+
+// connection function
+export const recipeConnect = async () => {
+	// Recipe SCHEMA
+	const RecipeSchema = new mongoose.Schema({
+		_id: String,
+		title: String,
+		author: String,
+		likes: Number,
+		description: String,
+		ingredients: Array<String>,
+		instructions: Array<String>,
+		tags: Array<String>,
+		preview: String,
+		images: Array<String>,
+	});
+
+	const RecipesSchema = new mongoose.Schema({});
+
+	const conn = await mongoose.connect(DATABASE_URL as string).catch((err) => console.log(err));
+	const dbName = "CCDatabase";
+	const db = conn.connection.db;
+
+	console.log("Database Name: ", dbName);
+
+	const collection = db.collection("Recipes");
+
+	console.log("Collection Name: ", collection.collectionName);
+
+	// Event MODEL
+	const Recipes = mongoose.models.Recipes || mongoose.model("Recipes", RecipesSchema, "Recipes");
+
+	console.log("Recipes Model: ", Recipes);
+
+	return { conn, Recipes };
+};
