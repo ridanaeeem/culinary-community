@@ -1,5 +1,6 @@
 import { EventPreviews } from "@/components/event-previews";
 const axios = require("axios");
+import Link from "next/link";
 
 export default async function Events() {
 	try {
@@ -11,6 +12,18 @@ export default async function Events() {
 		return <EventPreviews events={data} limit={Infinity} />;
 	} catch (error) {
 		console.error("Error fetching data:", error);
-		return <div>Error loading page</div>;
+		return (
+			<div className="flex justify-center">
+				<div className="flex flex-wrap justify-center w-fit">
+					<Link
+						key={1}
+						href={`/events/${"[EVENT TITLE]".replace(/\s+/g, "-").toLowerCase()}`}
+						className="bg-white rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
+						<h2 className="text-xl">{"[EVENT TITLE]"}</h2>
+						<p>{"[EVENT DESCRIPTION]"}</p>
+					</Link>
+				</div>
+			</div>
+		);
 	}
 }
