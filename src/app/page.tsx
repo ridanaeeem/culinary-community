@@ -2,6 +2,7 @@ import Image from "next/image";
 import homeBackground from "@/images/designs/homeBackground.svg";
 import { Header } from "@/components/header";
 import { Features } from "@/components/features";
+import { Featured } from "@/components/featured";
 import Link from "next/link";
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
 				<Link href="/events">Events</Link>
 				<Link href="/recipes">Recipes</Link>
 				<Features />
+				<Featured />
 			</main>
 		</>
 	);

@@ -29,7 +29,7 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 					<div className="flex flex-row">{tags}</div>
 				</h2>
 				<br></br>
-				<p className="text-3xl mb-2">{recipe.description}</p>
+				<p className="text-3xl mt-2 mb-4">{recipe.description}</p>
 				<div className="flex flex-col m-auto w-full">
 					<div className="flex flex-row m-auto w-full">
 						<div className="bg-[#D7EBD6] px-10 py-4 mr-5 rounded-xl w-1/3">
@@ -53,6 +53,9 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 								))}
 							</ol>
 						</div>
+					</div>
+					<div>
+						<h3 className="text-3xl m-6 text-center">You might also like...</h3>
 					</div>
 				</div>
 			</div>

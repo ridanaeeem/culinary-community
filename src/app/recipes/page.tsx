@@ -16,7 +16,7 @@ export default function Recipes() {
 
 				<div className="flex flex-row m-10">
 					<Icon imagesrc={timeIcon} alt="Timer" description="<1 Hr" />
-					<Icon imagesrc={timeIcon} alt="Timer" description="Vegetarian" />
+					<Icon imagesrc={timeIcon} alt="Timer" description="Vegan" />
 					<Icon imagesrc={timeIcon} alt="Timer" description="Gluten-Free" />
 					<Icon imagesrc={timeIcon} alt="Timer" description="Mediterranean" />
 					<Icon imagesrc={timeIcon} alt="Timer" description="Desi" />
