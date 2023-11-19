@@ -54,7 +54,7 @@ export const EventPage = ({ event }: { event: any }) => {
 	if (!event) return <div className="bg-black">Recipe not found</div>;
 
 	const tags = event.tags.map((tag: any, i: number) => (
-		<p key={i} className="mr-2 px-2 my-1 text-xl rounded-full border-2 border-[#FFFFFF] bg-[#FFFFFF]">
+		<p key={i} className="mr-2 px-2 my-1 text-xl rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
 			{tag}
 		</p>
 	));
