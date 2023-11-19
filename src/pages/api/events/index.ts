@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connect } from "@/utils/connection";
 import { ResponseFuncs } from "@/types";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
 	//capture request method, we type it as a key of ResponseFunc to reduce typing later
 	const method: keyof ResponseFuncs = req.method as keyof ResponseFuncs;
 
@@ -13,20 +13,27 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	const handleCase: ResponseFuncs = {
 		// RESPONSE FOR GET REQUESTS
 		GET: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.find({}).catch(catcher));
+			connect()
+				.then(({ Events }) => Events.find({}))
+				.then((events) => res.json(events))
+				.catch(catcher);
 		},
 		// RESPONSE POST REQUESTS
 		POST: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.create(req.body).catch(catcher));
+			connect()
+				.then(({ Events }) => Events.create(req.body))
+				.then((result) => res.json(result))
+				.catch(catcher);
 		},
 	};
 
 	// Check if there is a response for the particular method, if so invoke it, if not response with an error
 	const response = handleCase[method];
-	if (response) response(req, res);
-	else res.status(400).json({ error: "No Response for This Request" });
+	if (response) {
+		response(req, res);
+	} else {
+		res.status(400).json({ error: "No Response for This Request" });
+	}
 };
 
 export default handler;

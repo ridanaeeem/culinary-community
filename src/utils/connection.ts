@@ -5,8 +5,6 @@ const DATABASE_URL = process.env.MONGODB_URL;
 
 // connection function
 export const connect = async () => {
-	const conn = await mongoose.connect(DATABASE_URL as string).catch((err) => console.log(err));
-
 	// Event SCHEMA
 	const EventSchema = new mongoose.Schema({
 		_id: String,
@@ -24,8 +22,25 @@ export const connect = async () => {
 		images: Array<String>,
 	});
 
-	// Event MODEL
-	const Event = mongoose.models.Event || mongoose.model("Event", EventSchema);
+	const EventsSchema = new mongoose.Schema({});
 
-	return { conn, Event };
+	const conn = await mongoose.connect(DATABASE_URL as string).catch((err) => console.log(err));
+
+	console.log("Connected to MongoDB");
+
+	const dbName = "CCDatabase";
+	const db = conn.connection.db;
+
+	console.log("Database Name: ", dbName);
+
+	const collection = db.collection("Events");
+
+	console.log("Collection Name: ", collection.collectionName);
+
+	// Event MODEL
+	const Events = mongoose.models.Events || mongoose.model("Events", EventsSchema, "Events");
+
+	console.log("Events Model: ", Events);
+
+	return { conn, Events };
 };
