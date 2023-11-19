@@ -54,7 +54,7 @@ export const EventPage = ({ event }: { event: any }) => {
 	if (!event) return <div className="bg-black">Recipe not found</div>;
 
 	const tags = event.tags.map((tag: any, i: number) => (
-		<p key={i} className="mr-2 px-2 my-1 text-xl rounded-full border-2 border-[#FFFFFF] bg-[#FFFFFF]">
+		<p key={i} className="mr-2 px-2 my-1 text-xl rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
 			{tag}
 		</p>
 	));
@@ -63,8 +63,8 @@ export const EventPage = ({ event }: { event: any }) => {
 		<div className="flex flex-col gap-5 p-5 w-[20rem]% items-start">
 			<br></br>
 			<br></br>
-			<div className="absolute w-full mx-0 brightness-50 z-n10">
-				<div className="">
+			<div className="absolute w-full mx-0 brightness-50 bg-[#F5F5F5]">
+				{/* <div className="">
 					<Image
 						src={`https://culinary-community.vercel.app/images/events/${getEventImages(event)[1]}`}
 						alt={getEventTitle(event)}
@@ -73,15 +73,15 @@ export const EventPage = ({ event }: { event: any }) => {
 						sizes="100vw"
 						style={{ width: "100%", height: "334px" }}
 					/>
-				</div>
+				</div> */}
 			</div>
 			<div className="p-5 z-10">
 				<Link href="/events" className="text-black">
 					← Back to all events
 				</Link>
-				<h2 className="flex flex-col justify-between font-normal p-12 mb-4">
+				<h2 className="flex flex-col justify-between font-normal pr-12 mb-4 ">
 					<div className="flex flex-row">
-						<div className="text-5xl mr-2 mt-1 text-black shadow-xl">{event.title}</div>
+						<div className="text-5xl mr-2 mt-1 text-black">{event.title}</div>
 						<div className="text-2xl text-red-400 mt-4">
 							{getEventAttendees(event).length}/{getEventCapacity(event)} spots filled
 						</div>
