@@ -30,7 +30,9 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 						return null;
 					}
 					const tags = getRecipeTags(recipe).map((tag: string, i: number) => (
-						<p key={i} className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
+						<p
+							key={i}
+							className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
 							{tag}
 						</p>
 					));
@@ -40,7 +42,10 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 							href={`/recipes/${getRecipeTitle(recipe).replace(/\s+/g, "-").toLowerCase()}`}
 							className="bg-white rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
 							<div>
-								<ImagePreview src={getRecipePreview(recipe)} alt={getRecipeTitle(recipe)/>
+								<ImagePreview
+									src={`http://localhost:3000/images/recipes/${getRecipePreview(recipe)}`}
+									alt={getRecipeTitle(recipe)}
+								/>
 							</div>
 							<h2 className="text-xl mt-3">{getRecipeTitle(recipe)}</h2>
 							<p>{getRecipeDescription(recipe)}</p>
