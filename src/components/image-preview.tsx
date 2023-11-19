@@ -13,7 +13,7 @@ export const ImagePreview = ({ src, alt }: { src: string; alt: string }) => {
 	return (
 		<div className="relative w-full">
 			<div className="relative item-detail">
-				<Image src={src} alt={alt} objectFit="cover" width={600} height={600} />
+				<Image src={src} alt={alt} width={600} height={600} style={{ objectFit: "cover" }} />
 			</div>
 		</div>
 	);
