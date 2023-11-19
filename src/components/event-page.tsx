@@ -30,6 +30,10 @@ function getEventDate(event: any) {
 	return temp.slice(0, 10);
 }
 
+function getEventImages(event: any) {
+	return event.images ? event.images : [0, 0];
+}
+
 function getEventLocation(event: any) {
 	return event.location ? event.location : "[EVENT LOCATION]";
 }
@@ -62,7 +66,7 @@ export const EventPage = ({ event }: { event: any }) => {
 			<div className="absolute w-full mx-0 brightness-50 z-n10">
 				<div className="">
 					<Image
-						src={"/../public/images/events/dumpling-making1.jpg"}
+						src={`https://culinary-community.vercel.app/images/events/${getEventImages(event)[1]}`}
 						alt={getEventTitle(event)}
 						width={0}
 						height={0}
