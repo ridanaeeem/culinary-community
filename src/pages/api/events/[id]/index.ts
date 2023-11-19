@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "@/utils/connection";
+import { eventConnect } from "@/utils/connection";
 import { ResponseFuncs } from "@/types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -16,19 +16,19 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 	const handleCase: ResponseFuncs = {
 		// RESPONSE FOR GET REQUESTS
 		GET: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.findById(id).catch(catcher));
+			const { Events } = await eventConnect(); // connect to database
+			res.json(await Events.findById(id).catch(catcher));
 		},
-		// RESPONSE PUT REQUESTS
-		PUT: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.findByIdAndUpdate(id, req.body, { new: true }).catch(catcher));
-		},
-		// RESPONSE FOR DELETE REQUESTS
-		DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
-			const { Event } = await connect(); // connect to database
-			res.json(await Event.findByIdAndRemove(id).catch(catcher));
-		},
+		// // RESPONSE PUT REQUESTS
+		// PUT: async (req: NextApiRequest, res: NextApiResponse) => {
+		// 	const { Events } = await eventConnect(); // connect to database
+		// 	res.json(await Event.findByIdAndUpdate(id, req.body, { new: true }).catch(catcher));
+		// },
+		// // RESPONSE FOR DELETE REQUESTS
+		// DELETE: async (req: NextApiRequest, res: NextApiResponse) => {
+		// 	const { Events } = await eventConnect(); // connect to database
+		// 	res.json(await Event.findByIdAndRemove(id).catch(catcher));
+		// },
 	};
 
 	// Check if there is a response for the particular method, if so invoke it, if not response with an error

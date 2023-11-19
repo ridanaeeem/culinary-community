@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { connect } from "@/utils/connection";
+import { eventConnect } from "@/utils/connection";
 import { ResponseFuncs } from "@/types";
 
 const handler = (req: NextApiRequest, res: NextApiResponse) => {
@@ -13,14 +13,14 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
 	const handleCase: ResponseFuncs = {
 		// RESPONSE FOR GET REQUESTS
 		GET: async (req: NextApiRequest, res: NextApiResponse) => {
-			connect()
+			eventConnect()
 				.then(({ Events }) => Events.find({}))
 				.then((events) => res.json(events))
 				.catch(catcher);
 		},
 		// RESPONSE POST REQUESTS
 		POST: async (req: NextApiRequest, res: NextApiResponse) => {
-			connect()
+			eventConnect()
 				.then(({ Events }) => Events.create(req.body))
 				.then((result) => res.json(result))
 				.catch(catcher);
