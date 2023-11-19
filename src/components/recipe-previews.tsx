@@ -40,7 +40,7 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 						<Link
 							key={getRecipeId(recipe)}
 							href={`/recipes/${getRecipeTitle(recipe).replace(/\s+/g, "-").toLowerCase()}`}
-							className="bg-white rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
+							className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
 							<div>
 								<ImagePreview
 									src={`https://culinary-community.vercel.app/images/recipes/${getRecipePreview(
@@ -50,6 +50,7 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 								/>
 							</div>
 							<h2 className="text-xl mt-3">{getRecipeTitle(recipe)}</h2>
+							<div className="flex">{tags}</div>
 							<p>{getRecipeDescription(recipe)}</p>
 						</Link>
 					);
