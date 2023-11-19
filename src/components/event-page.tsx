@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 function getEventId(event: any) {
 	return event._id ? event._id : "[EVENT ID]";
@@ -58,6 +59,18 @@ export const EventPage = ({ event }: { event: any }) => {
 		<div className="flex flex-col gap-5 p-5 w-[20rem]% items-start">
 			<br></br>
 			<br></br>
+			<div className="absolute w-full mx-0 brightness-50 z-n10">
+				<div className="">
+					<Image
+						src={"/../public/images/events/dumpling-making1.jpg"}
+						alt={getEventTitle(event)}
+						width={0}
+						height={0}
+						sizes="100vw"
+						style={{ width: "100%", height: "334px" }}
+					/>
+				</div>
+			</div>
 			<div className="p-5 z-10">
 				<Link href="/events" className="text-black">
 					← Back to all events
