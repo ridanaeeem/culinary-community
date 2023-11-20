@@ -1,12 +1,9 @@
 import React from "react";
 import { EventPage } from "@/components/event-page";
 import { Header } from "@/components/header";
+import { getTitle } from "@/utils/getters";
 
 const axios = require("axios");
-
-function getEventTitle(event: any) {
-	return event.title ? event.title : "[EVENT TITLE]";
-}
 
 export default async function ViewEvent({ params }: { params: { title: string } }) {
 	try {
@@ -16,9 +13,7 @@ export default async function ViewEvent({ params }: { params: { title: string } 
 		if (!(data instanceof Array)) {
 			throw new Error("Response data is not an array");
 		}
-		const event = data.filter(
-			(event: any) => getEventTitle(event).replace(/\s+/g, "-").toLowerCase() === params.title
-		);
+		const event = data.filter((event: any) => getTitle(event).replace(/\s+/g, "-").toLowerCase() === params.title);
 		return (
 			<>
 				<Header />

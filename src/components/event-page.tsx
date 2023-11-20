@@ -1,54 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-
-function getEventId(event: any) {
-	return event._id ? event._id : "[EVENT ID]";
-}
-
-function getEventTitle(event: any) {
-	return event.title ? event.title : "[EVENT TITLE]";
-}
-
-function getEventDescription(event: any) {
-	return event.description ? event.description : "[EVENT DESCRIPTION]";
-}
-
-function getEventPreview(event: any) {
-	return event.preview ? event.preview : null;
-}
-
-function getEventPrice(event: any) {
-	return event.price ? event.price : Infinity;
-}
-
-function getEventTags(event: any) {
-	return event.tags ? event.tags : [];
-}
-
-function getEventDate(event: any) {
-	const temp = event.date ? event.date : "[EVENT DATE]";
-	return temp.slice(0, 10);
-}
-
-function getEventImages(event: any) {
-	return event.images ? event.images : [0, 0];
-}
-
-function getEventLocation(event: any) {
-	return event.location ? event.location : "[EVENT LOCATION]";
-}
-
-function getEventHosts(event: any) {
-	return event.hosts ? event.hosts : [];
-}
-
-function getEventAttendees(event: any) {
-	return event.attendees ? event.attendees : [];
-}
-
-function getEventCapacity(event: any) {
-	return event.capacity ? event.capacity : Infinity;
-}
+import * as G from "@/utils/getters";
 
 export const EventPage = ({ event }: { event: any }) => {
 	if (!event) return <div className="bg-black">Recipe not found</div>;
@@ -84,18 +35,18 @@ export const EventPage = ({ event }: { event: any }) => {
 						<div className="text-5xl mr-2 mt-1 text-black">{event.title}</div>
 						<div className="text-5xl mr-2 mt-1 text-black">{event.title}</div>
 						<div className="text-2xl text-red-400 mt-4">
-							{getEventAttendees(event).length}/{getEventCapacity(event)} spots filled
+							{G.getAttendees(event).length}/{G.getCapacity(event)} spots filled
 						</div>
 					</div>
 					<div className="flex flex-row">{tags}</div>
 				</h2>
 
 				<div className="text-3xl mt-2 mb-4">
-					<p>{getEventDescription(event)}</p>
-					<p>Host: {getEventHosts(event)}</p>
+					<p>{G.getDescription(event)}</p>
+					<p>Host: {G.getHosts(event)}</p>
 					<br></br>
-					<p>Date: {getEventDate(event)}</p>
-					<p>Location: {getEventLocation(event)}</p>
+					<p>Date: {G.getDate(event)}</p>
+					<p>Location: {G.getLocation(event)}</p>
 					<p>{event.time}</p>
 				</div>
 			</div>

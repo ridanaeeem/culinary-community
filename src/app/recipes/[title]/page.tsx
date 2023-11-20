@@ -1,12 +1,9 @@
 import React from "react";
 import { RecipePage } from "@/components/recipe-page";
 import { Header } from "@/components/header";
+import { getTitle } from "@/utils/getters";
 
 const axios = require("axios");
-
-function getRecipeTitle(recipe: any) {
-	return recipe.title ? recipe.title : "[RECIPE TITLE]";
-}
 
 export default async function ViewEvent({ params }: { params: { title: string } }) {
 	try {
@@ -17,7 +14,7 @@ export default async function ViewEvent({ params }: { params: { title: string } 
 			throw new Error("Response data is not an array");
 		}
 		const recipe = data.filter(
-			(recipe: any) => getRecipeTitle(recipe).replace(/\s+/g, "-").toLowerCase() === params.title
+			(recipe: any) => getTitle(recipe).replace(/\s+/g, "-").toLowerCase() === params.title
 		);
 		return (
 			<>

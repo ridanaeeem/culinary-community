@@ -1,14 +1,7 @@
 import type { Recipe } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
-
-function getRecipeImages(recipe: any) {
-	return recipe.images ? recipe.images : [0, 0];
-}
-
-function getRecipeTitle(recipe: any) {
-	return recipe.title ? recipe.title : "[RECIPE TITLE]";
-}
+import { getImages, getTitle } from "@/utils/getters";
 
 export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 	if (!recipe) return <div>Recipe not found</div>;
@@ -26,10 +19,12 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 			<div className="absolute w-full mx-0 brightness-50 z-n10">
 				<div className="">
 					<Image
-						src={`https://culinary-community.vercel.app/images/recipes/${getRecipeImages(recipe)[1]}`}
-						alt={getRecipeTitle(recipe)}
+						src={`https://culinary-community.vercel.app/images/recipes/${getImages(recipe)[1]}`}
+						alt={getTitle(recipe)}
 						width={0}
 						height={0}
+						sizes={"100vw"}
+						// quality={100}
 						style={{ width: "1440px", height: "334px" }}
 					/>
 				</div>

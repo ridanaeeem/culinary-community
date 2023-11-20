@@ -4,7 +4,7 @@ export default function Home() {
 	return (
 		<>
 			<Header />
-			<main className="flex flex-col items-center justify-between">about us</main>
+			<main className="flex flex-col items-center justify-between">Sign Up</main>
 		</>
 	);
 }
