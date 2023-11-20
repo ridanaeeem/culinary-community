@@ -9,37 +9,7 @@ import mediterraneanIcon from "@/images/designs/mediterranean.svg";
 import desiIcon from "@/images/designs/desi.svg";
 import chinaIcon from "@/images/designs/china.svg";
 import { useState } from "react";
-
-function getRecipeId(recipe: any) {
-	return recipe._id ? recipe._id : "[RECIPE ID]";
-}
-
-function getRecipeTitle(recipe: any) {
-	return recipe.title ? recipe.title : "[RECIPE TITLE]";
-}
-
-function getRecipeDescription(recipe: any) {
-	return recipe.description ? recipe.description : "[RECIPE DESCRIPTION]";
-}
-
-function getRecipePreview(recipe: any) {
-	return recipe.preview ? recipe.preview : null;
-}
-
-function getRecipeTags(recipe: any) {
-	return recipe.tags ? recipe.tags : [];
-}
-
-function containsObject(obj: any, list: any[]) {
-	var i;
-	for (i = 0; i < list.length; i++) {
-		if (list[i] === obj) {
-			return true;
-		}
-	}
-
-	return false;
-}
+import * as G from "@/utils/getters";
 
 export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 	const [filter, setFilter] = useState("all");
@@ -47,7 +17,7 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 	recipes =
 		filter !== "all"
 			? recipes.filter((recipe) => {
-					return containsObject(filter, getRecipeTags(recipe));
+					return G.getTags(recipe).includes(filter);
 			  })
 			: recipes;
 	return (
@@ -90,7 +60,7 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 								if (!recipe) {
 									return null;
 								}
-								const tags = getRecipeTags(recipe).map((tag: string, i: number) => (
+								const tags = G.getTags(recipe).map((tag: string, i: number) => (
 									<p
 										key={i}
 										className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
@@ -99,20 +69,20 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 								));
 								return (
 									<Link
-										key={getRecipeId(recipe)}
-										href={`/recipes/${getRecipeTitle(recipe).replace(/\s+/g, "-").toLowerCase()}`}
+										key={G.getId(recipe)}
+										href={`/recipes/${G.getTitle(recipe).replace(/\s+/g, "-").toLowerCase()}`}
 										className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
 										<div>
 											<ImagePreview
-												src={`https://culinary-community.vercel.app/images/recipes/${getRecipePreview(
+												src={`https://culinary-community.vercel.app/images/recipes/${G.getPreview(
 													recipe
 												)}`}
-												alt={getRecipeTitle(recipe)}
+												alt={G.getTitle(recipe)}
 											/>
 										</div>
-										<h2 className="text-xl mt-3">{getRecipeTitle(recipe)}</h2>
+										<h2 className="text-xl mt-3">{G.getTitle(recipe)}</h2>
 										<div className="flex flex-wrap">{tags}</div>
-										<p>{getRecipeDescription(recipe)}</p>
+										<p>{G.getDescription(recipe)}</p>
 									</Link>
 								);
 							})}

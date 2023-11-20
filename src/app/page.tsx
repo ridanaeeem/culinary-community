@@ -18,9 +18,6 @@ export default async function Home() {
 			<>
 				<Header />
 				<main className="flex flex-col items-center justify-between">
-					<br></br>
-					<br></br>
-					<br></br>
 					<div>
 						<div className="mx-10 text-center absolute left-20 top-32 w-20%">
 							<p className="my-10 text-5xl">Connect with your community through food</p>
@@ -44,9 +41,6 @@ export default async function Home() {
 			<>
 				<Header />
 				<main className="flex flex-col items-center justify-between">
-					<br></br>
-					<br></br>
-					<br></br>
 					<div>
 						<div className="mx-10 text-center absolute left-20 top-32 w-20%">
 							<p className="my-10 text-5xl">Connect with your community through food</p>

@@ -8,13 +8,11 @@ import gfIcon from "@/images/designs/gf.svg";
 import mediterraneanIcon from "@/images/designs/mediterranean.svg";
 import desiIcon from "@/images/designs/desi.svg";
 import chinaIcon from "@/images/designs/china.svg";
-// import { useState } from "react";
 
 const axios = require("axios");
 
 export default async function Recipes() {
 	try {
-		// const [filter, setFilter] = useState("all");
 		const response = await axios.get("https://culinary-community.vercel.app/api/recipes"); // replace with deployment endpoint
 		const data = response.data;
 		if (!(data instanceof Array)) {
@@ -23,10 +21,6 @@ export default async function Recipes() {
 		return (
 			<>
 				<Header />
-				<br></br>
-				<br></br>
-				<br></br>
-
 				<main className="content-center">
 					<RecipePreviews recipes={data} />
 				</main>
@@ -37,10 +31,6 @@ export default async function Recipes() {
 		return (
 			<>
 				<Header />
-				<br></br>
-				<br></br>
-				<br></br>
-
 				<main className="content-center">
 					<div className="flex flex-col bg-[#F5F5F5] mb-10">
 						<p className="m-10 text-center text-5xl text-black">

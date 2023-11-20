@@ -1,26 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { ImagePreview } from "./image-preview";
-
-function getRecipeTitle(recipe: any) {
-	return recipe.title ? recipe.title : "[RECIPE TITLE]";
-}
-
-function getRecipeDescription(recipe: any) {
-	return recipe.description ? recipe.description : "[RECIPE DESCRIPTION]";
-}
-
-function getRecipePreview(recipe: any) {
-	return recipe.preview ? recipe.preview : null;
-}
-
-function getRecipeTags(recipe: any) {
-	return recipe.tags ? recipe.tags : [];
-}
-
-function getRecipeLikes(recipe: any) {
-	return recipe.likes ? recipe.likes : 0;
-}
+import * as G from "@/utils/getters";
 
 const Feature = ({ title, description }: { title: string; description: string }) => {
 	return (
@@ -40,24 +21,24 @@ export const Featured = ({ recipes }: { recipes: any[] }) => {
 			<h3 className="text-3xl m-6 text-center text-[#156E0E]">Featured Recipes and Events</h3>
 			<div className="flex flex-row justify-center">
 				{recipes
-					.filter((recipe) => getRecipeLikes(recipe) > 10)
+					.filter((recipe) => G.getLikes(recipe) > 10)
 					.map((recipe) => {
-						let title = getRecipeTitle(recipe);
-						let preview = getRecipePreview(recipe);
-						const tags = getRecipeTags(recipe).map((tag: string, i: number) => (
+						let title = G.getTitle(recipe);
+						let preview = G.getPreview(recipe);
+						const tags = G.getTags(recipe).map((tag: string, i: number) => (
 							<p
 								key={i}
 								className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
 								{tag}
 							</p>
 						));
-						let description = getRecipeDescription(recipe);
+						let description = G.getDescription(recipe);
 						let imagepreview;
 						try {
 							imagepreview = (
 								<ImagePreview
 									src={`https://culinary-community.vercel.app/images/recipes/${preview}`}
-									alt={getRecipeTitle(recipe)}
+									alt={G.getTitle(recipe)}
 								/>
 							);
 						} catch (error) {
