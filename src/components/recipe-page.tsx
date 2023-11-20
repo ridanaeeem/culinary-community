@@ -2,6 +2,8 @@ import type { Recipe } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
 import { getImages, getTitle, topThree } from "@/utils/getters";
+import { Previews } from "./preview";
+import { Recommended } from "./recommended";
 
 export const RecipePage = ({ recipe, recipes }: { recipe: Recipe; recipes: Recipe[] }) => {
 	if (!recipe) return <div>Recipe not found</div>;
@@ -15,7 +17,7 @@ export const RecipePage = ({ recipe, recipes }: { recipe: Recipe; recipes: Recip
 	const recommended = topThree(recipe, recipes);
 
 	return (
-		<div className="flex flex-col gap-5 w-[20rem]% items-start">
+		<div className="flex flex-col gap-5 w-full items-start">
 			<div className="absolute w-full mx-0 brightness-50 z-n10">
 				<div className="">
 					<Image
@@ -25,11 +27,11 @@ export const RecipePage = ({ recipe, recipes }: { recipe: Recipe; recipes: Recip
 						height={0}
 						sizes={"100vw"}
 						// quality={100}
-						style={{ width: "1440px", height: "334px" }}
+						style={{ width: "100%", height: "334px" }}
 					/>
 				</div>
 			</div>
-			<div className="p-5 z-10">
+			<div className="w-full p-5 z-10">
 				<Link href="/recipes" className="text-white">
 					← Back to all recipes
 				</Link>
@@ -66,9 +68,7 @@ export const RecipePage = ({ recipe, recipes }: { recipe: Recipe; recipes: Recip
 							</ol>
 						</div>
 					</div>
-					<div>
-						<h3 className="text-3xl m-6 text-center">You might also like...</h3>
-					</div>
+					<Recommended recs={recommended} />
 				</div>
 			</div>
 		</div>
