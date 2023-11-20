@@ -1,7 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ["localhost", "culinary-community.vercel.app"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "culinary-community.vercel.app",
+			},
+			{
+				protocol: "http",
+				hostname: "localhost",
+			},
+		],
 	},
 };
 
