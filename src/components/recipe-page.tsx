@@ -30,8 +30,7 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 						alt={getRecipeTitle(recipe)}
 						width={0}
 						height={0}
-						sizes="100vw"
-						style={{ width: "100%", height: "334px" }}
+						style={{ width: "1440px", height: "334px" }}
 					/>
 				</div>
 			</div>
