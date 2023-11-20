@@ -12,8 +12,7 @@ export const Featured = ({ recipes, events }: { recipes: Recipe[]; events: Event
 		const per = event.attendees.length / event.capacity;
 		return per > minAttendeePercentage && per < 1;
 	});
-	const featured = [...recipes, ...events];
-	featured.sort(() => Math.random() - 0.5);
+	const featured = [...recipes, ...events].sort(() => Math.random() - 0.5).slice(0, cap);
 	return (
 		<div>
 			<h3 className="text-3xl m-6 text-center text-[#156E0E]">Featured Recipes and Events</h3>
