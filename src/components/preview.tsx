@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ImagePreview } from "./image-preview";
 import { Recipe, Event } from "@/types";
 import { Tags } from "./tags";
+import { getPrice } from "@/utils/getters";
 
 export const Previews = ({ objects }: { objects: (Recipe | Event)[] }) => {
 	const url = `https://culinary-community.vercel.app/images`;
@@ -17,7 +18,12 @@ export const Previews = ({ objects }: { objects: (Recipe | Event)[] }) => {
 							<ImagePreview src={`${url}/${object.dir}/${object.preview}`} alt={object.title} />
 						</div>
 						<h2 className="text-xl mt-3">{object.title}</h2>
-						<Tags tags={object.tags} />
+						{object.hasOwnProperty("price") ? (
+							<h4>Price: {getPrice(object) === 0 ? "Free" : getPrice(object)}</h4>
+						) : (
+							<Tags tags={object.tags} />
+						)}
+
 						<p>{object.description}</p>
 					</Link>
 				);
