@@ -20,7 +20,11 @@ export default async function Events() {
 				<br></br>
 
 				<div className="brightness-50 width-100% z-n10">
+<<<<<<< HEAD
 					<Image src={homeBackground} alt="background image"></Image>
+=======
+					<Image src={homeBackground} alt={"background image"} />
+>>>>>>> bd17befe8226cc3b9f3eea604189b6e2df36bfb3
 				</div>
 				<div className="absolute top-0 text-white text-center px-60 m-40 z-10">
 					<h1 className="text-7xl shadow-2xl">Find Local Events</h1>

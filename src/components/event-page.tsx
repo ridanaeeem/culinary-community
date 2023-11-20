@@ -79,8 +79,9 @@ export const EventPage = ({ event }: { event: any }) => {
 				<Link href="/events" className="text-black">
 					← Back to all events
 				</Link>
-				<h2 className="flex flex-col justify-between font-normal pr-12 mb-4 ">
+				<h2 className="flex flex-col justify-between font-normal pr-12 mb-4">
 					<div className="flex flex-row">
+						<div className="text-5xl mr-2 mt-1 text-black">{event.title}</div>
 						<div className="text-5xl mr-2 mt-1 text-black">{event.title}</div>
 						<div className="text-2xl text-red-400 mt-4">
 							{getEventAttendees(event).length}/{getEventCapacity(event)} spots filled
