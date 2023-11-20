@@ -24,7 +24,7 @@ export const EventPreviews = ({ events }: { events: any[] }) => {
 					height={0}
 					sizes={"100vw"}
 					// quality={100}
-					style={{ width: "100%", height: "auto" }}
+					style={{ width: "100%", maxHeight: "40vh" }}
 				/>
 			</div>
 			<div className="absolute top-0 text-white text-center px-60 m-40 z-10">
