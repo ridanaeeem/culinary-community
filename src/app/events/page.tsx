@@ -13,7 +13,7 @@ export default async function Events() {
 		return (
 			<>
 				<Header />
-				<main>
+				<main className="content-center">
 					<EventPreviews events={data} />
 				</main>
 			</>

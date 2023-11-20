@@ -16,8 +16,16 @@ export const EventPreviews = ({ events }: { events: any[] }) => {
 			: events;
 	return (
 		<>
-			<div className="brightness-50 width-100% z-n10">
-				<Image src={homeBackground} alt={"background image"} />
+			<div className="brightness-50 width-full z-n10">
+				<Image
+					src={homeBackground}
+					alt={"background image"}
+					width={0}
+					height={0}
+					sizes={"100vw"}
+					// quality={100}
+					style={{ width: "100%", height: "auto" }}
+				/>
 			</div>
 			<div className="absolute top-0 text-white text-center px-60 m-40 z-10">
 				<h1 className="text-7xl shadow-2xl">Find Local Events</h1>
