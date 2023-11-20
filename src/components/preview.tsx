@@ -1,17 +1,13 @@
 import Link from "next/link";
 import { ImagePreview } from "./image-preview";
 import { Recipe, Event } from "@/types";
+import { Tags } from "./tags";
 
 export const Previews = ({ objects }: { objects: (Recipe | Event)[] }) => {
 	const url = `https://culinary-community.vercel.app/images`;
 	return (
 		<div className="flex flex-wrap justify-center w-fit mx-10">
 			{objects.map((object) => {
-				const tags = object.tags.map((tag, i) => (
-					<li key={i} className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
-						{tag}
-					</li>
-				));
 				return (
 					<Link
 						key={object._id}
@@ -21,7 +17,7 @@ export const Previews = ({ objects }: { objects: (Recipe | Event)[] }) => {
 							<ImagePreview src={`${url}/${object.dir}/${object.preview}`} alt={object.title} />
 						</div>
 						<h2 className="text-xl mt-3">{object.title}</h2>
-						<ul className="flex flex-wrap">{tags}</ul>
+						<Tags tags={object.tags} />
 						<p>{object.description}</p>
 					</Link>
 				);
