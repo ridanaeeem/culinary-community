@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import { ImagePreview } from "./image-preview";
 import { Icon } from "@/components/quick-search";
 import timeIcon from "@/images/designs/time.svg";
 import veganIcon from "@/images/designs/vegan.svg";
@@ -9,7 +7,8 @@ import mediterraneanIcon from "@/images/designs/mediterranean.svg";
 import desiIcon from "@/images/designs/desi.svg";
 import chinaIcon from "@/images/designs/china.svg";
 import { useState } from "react";
-import * as G from "@/utils/getters";
+import { getTags } from "@/utils/getters";
+import { Previews } from "./preview";
 
 export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 	const [filter, setFilter] = useState("all");
@@ -17,7 +16,7 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 	recipes =
 		filter !== "all"
 			? recipes.filter((recipe) => {
-					return G.getTags(recipe).includes(filter);
+					return getTags(recipe).includes(filter);
 			  })
 			: recipes;
 	return (
@@ -52,44 +51,13 @@ export const RecipePreviews = ({ recipes }: { recipes: any[] }) => {
 					</button>
 				</div>
 			</div>
-			<div className="flex flex-row">
-				<div className="content-center">
-					<div className="flex justify-center">
-						<div className="flex flex-wrap justify-center w-fit mx-10">
-							{recipes.map(function (recipe: any) {
-								if (!recipe) {
-									return null;
-								}
-								const tags = G.getTags(recipe).map((tag: string, i: number) => (
-									<p
-										key={i}
-										className="mr-2 px-2 my-1 text-m rounded-full border-2 border-[#D7EBD6] bg-[#D7EBD6]">
-										{tag}
-									</p>
-								));
-								return (
-									<Link
-										key={G.getId(recipe)}
-										href={`/recipes/${G.getTitle(recipe).replace(/\s+/g, "-").toLowerCase()}`}
-										className="bg-[#F5F5F5] rounded-lg flex flex-col p-4 m-2 w-60 min-w-10vw hover:shadow-2xl hover:outline-black transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-104">
-										<div>
-											<ImagePreview
-												src={`https://culinary-community.vercel.app/images/recipes/${G.getPreview(
-													recipe
-												)}`}
-												alt={G.getTitle(recipe)}
-											/>
-										</div>
-										<h2 className="text-xl mt-3">{G.getTitle(recipe)}</h2>
-										<div className="flex flex-wrap">{tags}</div>
-										<p>{G.getDescription(recipe)}</p>
-									</Link>
-								);
-							})}
-						</div>
-					</div>
-				</div>
+			{/* <div className="flex flex-row"> */}
+			{/* <div className="content-center"> */}
+			<div className="flex flex-wrap justify-start">
+				<Previews objects={recipes} />
 			</div>
+			{/* </div> */}
+			{/* </div> */}
 		</>
 	);
 };

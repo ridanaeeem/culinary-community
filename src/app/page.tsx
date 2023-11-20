@@ -9,10 +9,15 @@ const axios = require("axios");
 
 export default async function Home() {
 	try {
-		const response = await axios.get("https://culinary-community.vercel.app/api/recipes"); // replace with deployment endpoint
-		const data = response.data;
-		if (!(data instanceof Array)) {
-			throw new Error("Response data is not an array");
+		const recipesResponse = await axios.get("https://culinary-community.vercel.app/api/recipes"); // replace with deployment endpoint
+		const recipes = recipesResponse.data;
+		const eventsResponse = await axios.get("https://culinary-community.vercel.app/api/events"); // replace with deployment endpoint
+		const events = eventsResponse.data;
+		if (!(recipes instanceof Array)) {
+			throw new Error("Recipes response data is not an array");
+		}
+		if (!(events instanceof Array)) {
+			throw new Error("Events response data is not an array");
 		}
 		return (
 			<>
@@ -31,7 +36,7 @@ export default async function Home() {
 					</div>
 					<Image src={homeBackground} alt="hiii" className="w-full" />
 					<Features />
-					<Featured recipes={data} />
+					<Featured recipes={recipes} events={events} />
 				</main>
 			</>
 		);

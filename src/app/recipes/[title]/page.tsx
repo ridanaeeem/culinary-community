@@ -19,7 +19,7 @@ export default async function ViewEvent({ params }: { params: { title: string } 
 		return (
 			<>
 				<Header />
-				<RecipePage recipe={recipe[0]} />
+				<RecipePage recipe={recipe[0]} recipes={data} />
 			</>
 		);
 	} catch (error) {

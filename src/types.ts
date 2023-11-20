@@ -25,6 +25,7 @@ export interface Event {
 	tags: string[];
 	preview: string;
 	images: string[];
+	dir: string;
 }
 
 export type User = {
@@ -36,7 +37,7 @@ export type User = {
 };
 
 export interface Recipe {
-	id: string;
+	_id: string;
 	title: string;
 	author: string;
 	likes: number;
@@ -46,4 +47,5 @@ export interface Recipe {
 	tags: string[];
 	preview: string;
 	images: string[];
+	dir: string;
 }

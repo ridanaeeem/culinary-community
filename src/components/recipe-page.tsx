@@ -1,9 +1,9 @@
 import type { Recipe } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
-import { getImages, getTitle } from "@/utils/getters";
+import { getImages, getTitle, topThree } from "@/utils/getters";
 
-export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
+export const RecipePage = ({ recipe, recipes }: { recipe: Recipe; recipes: Recipe[] }) => {
 	if (!recipe) return <div>Recipe not found</div>;
 
 	const tags = recipe.tags.map((tag, i) => (
@@ -12,10 +12,10 @@ export const RecipePage = ({ recipe }: { recipe: Recipe }) => {
 		</p>
 	));
 
+	const recommended = topThree(recipe, recipes);
+
 	return (
 		<div className="flex flex-col gap-5 w-[20rem]% items-start">
-			<br></br>
-			<br></br>
 			<div className="absolute w-full mx-0 brightness-50 z-n10">
 				<div className="">
 					<Image

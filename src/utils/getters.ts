@@ -1,5 +1,5 @@
 export const getId = (x: any) => {
-	return x.id ? x.id : `[ID]`;
+	return x._id ? x._id : `[ID]`;
 };
 
 export const getTitle = (x: any) => {
@@ -43,9 +43,20 @@ export const getAttendees = (x: any) => {
 };
 
 export const getCapacity = (x: any) => {
-	return x.capacity ? x.capacity : `[CAPACITY]`;
+	return x.capacity ? x.capacity : 1;
 };
 
 export const getLikes = (x: any) => {
 	return x.likes ? x.likes : 0;
+};
+
+export const numSimilarTags = (x: any, y: any) => {
+	return getTags(x).filter((tag: string) => getTags(y).includes(tag)).length;
+};
+
+export const topThree = (x: any, y: any[]) => {
+	const sortedRecipes = y
+		.filter((z) => getTitle(z) !== getTitle(x))
+		.sort((a, b) => numSimilarTags(b, x) - numSimilarTags(a, x));
+	return sortedRecipes.slice(0, 3);
 };
