@@ -18,7 +18,7 @@ export const Header = () => {
 					<Link href="/community" className="text-3xl px-2">
 						Community
 					</Link>
-					<Link href="/about" className="text-3xl px-2">
+					<Link href="https://github.com/ridanaeeem/culinary-community" className="text-3xl px-2">
 						About
 					</Link>
 				</div>
